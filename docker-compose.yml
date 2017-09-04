@@ -1,0 +1,5 @@
+redirector:
+  build: .
+  command: /bin/bash ./start.sh
+  ports:
+    - "3000:80"
