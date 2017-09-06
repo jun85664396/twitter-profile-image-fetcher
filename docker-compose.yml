@@ -5,5 +5,7 @@ redirector:
     - redis
   ports:
     - "3000:80"
+  environment:
+    - PROCESS_CNT=8
 redis:
   image: "redis:latest"
