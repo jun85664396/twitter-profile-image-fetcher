@@ -1,5 +1,9 @@
 redirector:
   build: .
   command: /bin/bash ./start.sh
+  links:
+    - redis
   ports:
     - "3000:80"
+redis:
+  image: "redis:latest"
