@@ -1,7 +1,7 @@
 const request = require("request")
 const bluebird = require("bluebird")
 const redis = require("redis"),
-  client = bluebird.promisifyAll(redis.createClient("redis://localhost"))
+  client = bluebird.promisifyAll(redis.createClient("redis://redis"))
 
 const profile  = {
   get_profile: function(screen_name, size) {
