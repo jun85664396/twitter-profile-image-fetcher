@@ -6,11 +6,11 @@ const redis = require("redis"),
 const profile  = {
   get_profile: function(screen_name, size) {
     return new Promise((resolve, reject) => {
-      request.get(`https://twitter.com/${screen_name}/profile_image?size=${size}`, function(err, res, body){
+      request.get({url: `https://twitter.com/${screen_name}/profile_image?size=${size}`, followRedirect: false}, function(err, res, body){
         if(err) return reject(err)
-        if(res.statusCode == 200)
+        if(res.statusCode == 302)
         {
-          resolve(res.request.uri.href)
+          resolve(res.headers.location)
         }
       }) 
     })
